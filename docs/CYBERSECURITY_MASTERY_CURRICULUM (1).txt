@@ -1,0 +1,1294 @@
+# CYBERSECURITY MASTERY CURRICULUM
+## Zero to Job-Ready in 6 Months (Free Resources Only)
+**For**: Akash (BCA student, Windows machine, mobile data, 8 hrs/day  
+**Timeline**: June 2026 – December 2026  
+**Philosophy**: Master the fundamentals deeply. Build real projects. Get hired.
+
+---
+
+# PART 1: FOUNDATIONS (Weeks 1–8, June–July)
+## Goal: Understand the field, build Linux + networking knowledge, prepare for first cert
+
+### Week 1–2: What is Cybersecurity? (Concepts Only)
+
+#### Day 1–3: The Big Picture
+**What you'll learn**: What cybersecurity actually is, why it matters, job roles, the landscape
+
+**Read/Watch** (3 hours total):
+- SANS Cyber Aces **"Security Fundamentals"** (free, no login): https://www.cyberaces.org/
+  - Read: "What is Security?", "Confidentiality, Integrity, Availability (CIA Triad)"
+  - Read: "Threats, Vulnerabilities, and Risks"
+  - Read: "Defense in Depth"
+- Keep a **concept notebook** (digital or paper) — write 1-2 sentences explaining each concept
+
+**Key concepts to master**:
+- **CIA Triad**: Confidentiality (data secret), Integrity (data unchanged), Availability (accessible)
+- **Threat**: Someone or something trying to harm you
+- **Vulnerability**: A weakness in a system
+- **Risk**: Probability that a threat exploits a vulnerability
+- **Attack**: Actual exploitation happening
+
+**Exercise** (1 hour):
+Write down 3 real-world examples:
+1. A threat you've seen (e.g., phishing email)
+2. A vulnerability (e.g., weak password)
+3. How they connect to cause risk
+
+**Check-in**: Send me what you wrote. I'll give feedback.
+
+---
+
+#### Day 4–5: Job Roles & Career Paths
+**What you'll learn**: What actual cybersecurity jobs look like, which one you might want
+
+**Read** (2 hours):
+- SANS Cyber Aces **"Different Career Paths"**: https://www.cyberaces.org/
+- Krebs on Security **"Starting a Cybersecurity Career"**: https://krebsonsecurity.com/2020/07/starting-a-career-in-cybersecurity/ (read first 3 sections)
+
+**Job roles breakdown** (write these down):
+| Role | What You Do | Entry-Level? | Tools Used |
+|------|------------|--------------|-----------|
+| SOC Analyst L1 | Monitor logs, spot attacks, escalate | YES | Splunk, ELK, SIEM |
+| Penetration Tester | Hack systems (legally) to find bugs | NO (need 2-3 yrs) | Metasploit, Burp |
+| Security Engineer | Design secure systems | NO (need foundation) | Cloud, automation |
+| Incident Responder | Fix active attacks | NO (need foundation) | Forensics, logs |
+| Vulnerability Analyst | Find and report bugs | YES | Nessus, Qualys |
+
+**Your target**: **SOC Analyst L1** (easiest entry, real job growth, learn fast on-the-job)
+
+**Exercise** (1 hour):
+- List 5 companies hiring in India (search: "SOC analyst jobs India")
+- Screenshot 2 job descriptions
+- Highlight: What skills do they want? (save for later comparison)
+
+---
+
+#### Day 6–7: The Hacker's Mindset + Basic Threat Landscape
+**What you'll learn**: How attackers think, what threats are real right now
+
+**Read** (2 hours):
+- Krebs on Security **"Password Tips"**: https://krebsonsecurity.com/password-tips/
+- SANS Cyber Aces **"Common Vulnerabilities"**: https://www.cyberaces.org/
+- Bleeping Computer **latest malware news**: https://www.bleepingcomputer.com/ (skim 5 recent articles)
+
+**Key threats to understand**:
+- **Malware**: Viruses, ransomware, trojans
+- **Phishing**: Social engineering via email
+- **SQL Injection**: Attacking web apps
+- **Weak passwords**: Still the #1 cause of breaches
+- **Unpatched software**: Running old versions with known holes
+
+**Exercise** (2 hours):
+- Go to **OWASP Top 10** (free): https://owasp.org/www-project-top-ten/
+- Read the intro
+- Understand what **Injection**, **Broken Authentication**, **Sensitive Data Exposure** mean
+- Write 1 paragraph: "Why are the OWASP Top 10 important?"
+
+---
+
+### Week 3–4: Linux Fundamentals (Hands-On)
+
+**Why Linux?** Most servers run Linux. Cybersecurity tools run on Linux. You MUST be comfortable with it.
+
+#### Day 1–2: Install Linux, Basic Commands
+**What you'll learn**: How to use Linux command line, file system basics
+
+**Setup** (2 hours):
+1. Download **VirtualBox** (FREE): https://www.virtualbox.org/
+2. Download **Ubuntu 22.04 LTS ISO** (FREE): https://ubuntu.com/download/desktop
+3. Create virtual machine in VirtualBox:
+   - Allocate 2 CPU cores, 4GB RAM (if your Windows machine has it)
+   - Install Ubuntu (follow default options)
+4. Update system:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   ```
+
+**Learn basic commands** (2 hours, TryHackMe free tier):
+- Go to https://tryhackme.com (create free account)
+- Do room: **"Linux Fundamentals Part 1"** (free)
+  - Learn: `ls`, `cd`, `pwd`, `cat`, `touch`, `mkdir`, `rm`
+  - Learn: File permissions (`chmod`, `chown`)
+  - Learn: User management basics
+
+**Exercise** (1 hour):
+In your Ubuntu VM, do this without looking at notes:
+```bash
+# Create a directory called "cybersec_practice"
+# Create a file inside it called "notes.txt"
+# Write the line "Learning cybersecurity" into notes.txt
+# Change file permissions so only you can read it
+# List directory contents with detailed info
+# Delete the file
+# Delete the directory
+```
+
+**Check-in**: Take a screenshot showing you completed these commands. Send it.
+
+---
+
+#### Day 3–5: Advanced Linux (Users, Permissions, Services)
+**What you'll learn**: How Linux security actually works, privilege escalation basics
+
+**Learn** (3 hours, TryHackMe):
+- Do room: **"Linux Fundamentals Part 2"**
+  - Learn: sudo, user/group permissions, password storage basics
+- Do room: **"Linux Fundamentals Part 3"**
+  - Learn: finding files, viewing logs, process management
+
+**Deep concept: Privilege Escalation**
+- Linux separates **normal users** from **root** (admin)
+- A security vulnerability might let a normal user become root
+- This is called **privilege escalation** — critical for both attackers and defenders
+
+**Exercise** (2 hours):
+In your Ubuntu VM:
+```bash
+# 1. Create two users: "attacker" and "defender"
+# 2. Create a file owned by "defender" that "attacker" can't read
+# 3. Try to read it as "attacker" (should fail)
+# 4. Switch to root, change permissions so "attacker" CAN read it
+# 5. Document each step and why it matters for security
+```
+
+**Check-in**: Screenshot your work. Explain in 1 paragraph: "Why is understanding file permissions critical for security?"
+
+---
+
+#### Day 6–7: Networking from Linux
+**What you'll learn**: How to use Linux to see/diagnose network traffic
+
+**Learn** (2 hours):
+- TryHackMe: **"Networking Fundamentals"** room (free, just networking, no hacking yet)
+  - Learn: IP addresses, ports, TCP/UDP, DNS
+
+**Hands-on** (2 hours, in Ubuntu):
+```bash
+# See your network config
+ip addr show
+ip route show
+
+# Check if a server is reachable
+ping 8.8.8.8
+
+# See open ports on your machine
+sudo netstat -tuln
+
+# See DNS info
+nslookup google.com
+
+# See network interfaces
+ifconfig (or ip link show)
+```
+
+**Exercise** (1 hour):
+```bash
+# 1. Find your IP address
+# 2. Find the default gateway
+# 3. Ping Google DNS (8.8.8.8)
+# 4. Do an nslookup for "tryhackme.com"
+# 5. Screenshot all results
+# 6. Explain: What is a port? Why do we need them?
+```
+
+**Check-in**: Send screenshots + explanation.
+
+---
+
+### Week 5–6: Networking Fundamentals (Deep Dive)
+
+**Why this matters**: SOC analysts see network traffic constantly. You need to understand it deeply.
+
+#### Day 1–3: Networks, Protocols, Layers
+**What you'll learn**: How networks work, TCP/IP model, DNS, HTTP
+
+**Read** (3 hours):
+- SANS Cyber Aces **"Networking Fundamentals"**: https://www.cyberaces.org/
+  - Read: "What is a Network?", "The OSI Model", "TCP/IP", "DNS"
+  - Read: "Ports and Protocols"
+
+**Critical concepts**:
+| Concept | What It Is | Why It Matters |
+|---------|-----------|----------------|
+| **IP Address** | Unique ID for a device (192.168.1.1) | Route packets to right place |
+| **Port** | "Door" on a computer (22, 80, 443, etc.) | Services listen on specific ports |
+| **Protocol** | Rules for communication (TCP, UDP, HTTP) | Attackers exploit protocol weaknesses |
+| **DNS** | Translates google.com → 142.250.80.46 | DNS spoofing is an attack vector |
+| **MAC Address** | Physical network card ID | Local network identification |
+
+**The 7-Layer OSI Model** (memorize this):
+```
+7. Application (HTTP, FTP, SSH)
+6. Presentation (Encryption, Compression)
+5. Session (User sessions, login)
+4. Transport (TCP, UDP - reliability)
+3. Network (IP - routing)
+2. Data Link (Ethernet, WiFi, MAC addresses)
+1. Physical (Actual cables, radio waves)
+```
+
+**Exercise** (2 hours):
+Write a **network communication story**:
+- "I'm sending an email to my friend. Trace it from my computer to theirs."
+- Include: IP address, DNS lookup, TCP connection, port 25 (or 587), encryption
+- Explain each layer involved
+
+**Check-in**: Send your story. I'll correct it.
+
+---
+
+#### Day 4–5: Common Protocols Deep-Dive
+**What you'll learn**: HTTP/HTTPS, SSH, FTP, DNS — how they work, how they're attacked
+
+**Learn** (3 hours):
+- SANS Cyber Aces **"Web Fundamentals"**: https://www.cyberaces.org/
+- TryHackMe: **"What is Networking?"** room
+
+**Protocol breakdown**:
+
+**HTTP/HTTPS** (Web traffic):
+- HTTP = unencrypted, HTTPS = encrypted
+- Structure: `GET /path HTTP/1.1`, headers, body
+- Attacker can: sniff traffic (HTTP), inject code, steal cookies
+- Defense: Always use HTTPS, validate input
+
+**SSH** (Secure Shell):
+- Used to remotely login to servers
+- Public-key cryptography (we'll learn this later)
+- Attacker can: brute-force passwords, steal private keys
+- Defense: Key-based auth, strong passphrases, disable root login
+
+**DNS** (Domain Name System):
+- Translates names to IPs
+- Queries not encrypted (DNSSEC fixes this)
+- Attacker can: DNS spoofing, cache poisoning, redirect to fake site
+- Defense: DNSSEC, monitor DNS queries
+
+**Exercise** (2 hours):
+1. Open browser developer tools (F12)
+2. Go to any website
+3. Go to **Network** tab
+4. Reload page
+5. Find 3 HTTP requests
+6. For each, document: URL, method (GET/POST), status code (200, 404, etc.), size
+7. Go to **Security** tab, click lock icon
+8. Screenshot the certificate (shows HTTPS info)
+9. Write: "Why is HTTPS important? What was sent in plaintext?"
+
+**Check-in**: Send screenshots.
+
+---
+
+#### Day 6–7: Packet Analysis Basics
+**What you'll learn**: How to read network traffic, spot attacks
+
+**Install Wireshark** (network analyzer, FREE):
+```bash
+# In Ubuntu VM
+sudo apt install wireshark
+sudo usermod -aG wireshark $USER
+# Log out and back in
+```
+
+**Learn** (2 hours):
+- TryHackMe: **"Wireshark 101"** room (free, teaches packet capture)
+- SANS Cyber Aces **"Network Security Tools"**: https://www.cyberaces.org/
+
+**Exercise** (2 hours):
+1. Open Wireshark
+2. Click "Capture" → "Start" (on your ethernet/WiFi interface)
+3. Wait 30 seconds
+4. Click "Stop"
+5. Look at the packet list
+6. Find a DNS query (Protocol = "DNS")
+7. Expand it and read the details
+8. Find an HTTP request (Protocol = "HTTP")
+9. Read the URL being requested
+10. Screenshot both, explain what you see
+
+**Check-in**: Send screenshots.
+
+---
+
+### Week 7–8: Cryptography Basics
+
+**Why this matters**: All modern security relies on cryptography. You need to understand it at a deep level.
+
+#### Day 1–2: What is Cryptography?
+**What you'll learn**: Encryption, decryption, symmetric vs. asymmetric, hashing
+
+**Read** (3 hours):
+- SANS Cyber Aces **"Cryptography"**: https://www.cyberaces.org/
+  - Read all sections carefully
+- Khan Academy **"Cryptography"** (free): https://www.khanacademy.org/computing/computer-science/cryptography
+  - Watch first 3 videos (15 min each)
+
+**Core concepts**:
+
+| Concept | Explanation | Example |
+|---------|-------------|---------|
+| **Plaintext** | Unencrypted message | "Hello World" |
+| **Ciphertext** | Encrypted message | "K1m0 V0r1k" (Caesar cipher) |
+| **Key** | Secret used to encrypt/decrypt | "shift by 3" |
+| **Encryption** | Convert plaintext → ciphertext | Plaintext + Key → Ciphertext |
+| **Decryption** | Convert ciphertext → plaintext | Ciphertext + Key → Plaintext |
+
+**Symmetric Encryption** (one key for both encrypt & decrypt):
+- Same key encrypts and decrypts
+- Fast, but key distribution problem
+- Examples: AES-256, DES (outdated)
+- Problem: How do you securely share the key?
+
+**Asymmetric Encryption** (two keys: public + private):
+- Public key: Anyone can see it, used to encrypt
+- Private key: Only you have it, used to decrypt
+- Slower, but solves key distribution problem
+- Examples: RSA, ECC
+- Used for: HTTPS, SSH, email signing
+
+**Hashing** (one-way encryption):
+- Can't decrypt (by design)
+- Used for: passwords, file integrity, digital signatures
+- Examples: MD5 (broken), SHA-256, bcrypt
+- Properties: Same input → always same output, tiny change → completely different output
+
+**Exercise** (2 hours):
+1. Understand Caesar Cipher (shift each letter by N positions):
+   - "HELLO" shifted by 3 → "KHOOR"
+2. Write a simple Caesar cipher (pen & paper or code):
+   ```python
+   def caesar_encrypt(text, shift):
+       result = ""
+       for char in text:
+           if char.isalpha():
+               shifted = chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
+               result += shifted
+           else:
+               result += char
+       return result
+   
+   print(caesar_encrypt("CYBERSECURITY", 3))
+   ```
+3. Encrypt "CYBERSECURITY" with shift 3
+4. Encrypt "ATTACK AT DAWN" with shift 5
+5. Decrypt "WKUHD VKLIW" (shift 3, but you need to reverse it)
+
+**Check-in**: Send your code + results.
+
+---
+
+#### Day 3–5: Modern Cryptography
+**What you'll learn**: How HTTPS/SSL/TLS works, RSA basics, why cryptography fails
+
+**Read** (3 hours):
+- SANS Cyber Aces **"SSL/TLS"**: https://www.cyberaces.org/
+- Khan Academy **"RSA Cryptography"** (5-min video): https://www.khanacademy.org/computing/computer-science/cryptography/rsa-encrypt-and-decrypt
+
+**How HTTPS Works** (critical for SOC analysts):
+1. Browser connects to server (port 443)
+2. Server sends certificate with public key
+3. Browser generates random session key
+4. Browser encrypts session key with server's public key
+5. Server decrypts with private key
+6. Both now use session key for encrypted communication
+
+**Why this matters**:
+- Attackers can't read HTTPS traffic (encrypted)
+- But attackers CAN see: destination IP, domain, traffic volume, timing
+- Attackers CAN intercept if certificate is fake (man-in-the-middle attack)
+
+**RSA Basics** (you don't need to implement it):
+- Uses two large prime numbers
+- Very hard to factor large numbers (security basis)
+- Public key: product of two primes
+- Private key: the two primes themselves
+- Anyone with public key can encrypt, only private key can decrypt
+
+**Exercise** (2 hours):
+1. Go to any HTTPS website (gmail.com, github.com, etc.)
+2. Click the lock icon in browser
+3. Click "Certificate" or "View certificate"
+4. Screenshot the certificate
+5. Find: Serial number, issuer, validity dates, public key algorithm
+6. Answer:
+   - "Who issued this certificate?"
+   - "How long is it valid?"
+   - "What's the public key algorithm?"
+   - "Why does the browser trust this certificate?"
+
+**Check-in**: Send screenshot + answers.
+
+---
+
+#### Day 6–7: Hashing & Password Security
+**What you'll learn**: Why passwords are hashed, common attacks, why some hashes are weak
+
+**Read** (2 hours):
+- SANS Cyber Aces **"Password Security"**: https://www.cyberaces.org/
+- Krebs on Security **"Password Tips"**: https://krebsonsecurity.com/password-tips/
+
+**How passwords SHOULD work**:
+1. User enters password
+2. System hashes it (one-way function): `hash("mypassword123") = a1b2c3d4...`
+3. On login, hash entered password and compare to stored hash
+4. If hashes match, password was correct
+5. Even if database is stolen, passwords aren't immediately readable
+
+**Common password hashing algorithms**:
+| Algorithm | Strength | Speed | Status |
+|-----------|----------|-------|--------|
+| MD5 | Very weak | Very fast | BROKEN - don't use |
+| SHA-1 | Weak | Fast | BROKEN - don't use |
+| SHA-256 | Medium | Medium | OK for non-passwords |
+| bcrypt | Strong | Slow | BEST for passwords |
+| Argon2 | Very strong | Slower | BEST for passwords |
+
+**Why bcrypt is strong**:
+- **Salting**: Adds random data to password before hashing (prevents rainbow tables)
+- **Key stretching**: Hashes the hash multiple times (slows down brute-force)
+- **Work factor**: Configurable difficulty (can increase over time)
+
+**Common password attacks**:
+- **Dictionary attack**: Try common passwords (password123, qwerty, etc.)
+- **Brute force**: Try all combinations (a, aa, aaa, ... zzz...)
+- **Rainbow tables**: Pre-computed hashes (useless against salted hashes)
+- **Credential stuffing**: Use passwords from other breaches
+
+**Exercise** (2 hours):
+1. Go to https://haveibeenpwned.com/
+2. Check if your email has been in a breach
+3. If yes, what passwords might be compromised?
+4. Go to https://crackstation.net/
+5. Try to crack some hashes (they'll show you the weakness):
+   - `5f4dcc3b5aa765d61d8327deb882cf99` (MD5)
+   - `5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8` (SHA-1)
+6. Screenshot results
+7. Write: "Why could these be cracked? What would make them stronger?"
+
+**Check-in**: Send screenshots + explanation.
+
+---
+
+### Week 9: Capstone Project — Personal Security Audit
+
+**What you'll learn**: Apply all concepts from weeks 1–8
+
+**Do this**:
+1. **Audit your own computer**:
+   - List all user accounts
+   - Check what ports are open
+   - List running services
+   - Check if Windows Firewall is on
+   - Check if Windows Defender is on
+   - Check if auto-updates are enabled
+
+2. **Audit your own network**:
+   - Capture 1 minute of network traffic in Wireshark
+   - Identify: DNS queries, HTTP requests, encrypted traffic (HTTPS)
+   - Screenshot 3 interesting packets and explain what they are
+
+3. **Audit your passwords**:
+   - List 5 passwords you use
+   - Rate their strength (weak/medium/strong)
+   - Check if they're in any breach (haveibeenpwned.com)
+   - Create 3 strong passwords using a password manager (Bitwarden, free)
+
+4. **Document everything** in a markdown file:
+   - System security status
+   - Network findings
+   - Password audit results
+   - 3 recommendations for improvement
+
+**Check-in**: Send me your audit report. I'll give detailed feedback.
+
+---
+
+# PART 2: FOUNDATIONAL TOOLS & ATTACKS (Weeks 10–16, August)
+## Goal: Understand how attacks work, learn first penetration testing tools, hands-on labs
+
+### Week 10–11: Web Application Security (OWASP Top 10)
+
+**Why**: Most attacks target web apps. As a SOC analyst, you'll see these constantly.
+
+#### Core concepts: SQL Injection, XSS, Authentication Bypass
+
+**Read** (4 hours):
+- OWASP Top 10 (free): https://owasp.org/www-project-top-ten/2021/
+  - Read: A01 - Broken Access Control
+  - Read: A02 - Cryptographic Failures
+  - Read: A03 - Injection (SQL Injection)
+  - Read: A04 - Insecure Design
+  - Read: A05 - Security Misconfiguration
+  - Read: A06 - Vulnerable and Outdated Components
+  - Read: A07 - Identification and Authentication Failures
+  - Read: A08 - Software and Data Integrity Failures
+
+**SQL Injection** (most common web attack):
+```sql
+-- Normal SQL query:
+SELECT * FROM users WHERE username='admin' AND password='password123'
+
+-- Attacker enters: admin' OR '1'='1
+SELECT * FROM users WHERE username='admin' OR '1'='1' AND password='anything'
+
+-- This always returns TRUE, so attacker logs in without knowing password!
+```
+
+**Cross-Site Scripting (XSS)**:
+```html
+<!-- Normal web comment: "Great product!" -->
+
+<!-- Attacker enters: <script>alert('hacked')</script> -->
+<!-- This JavaScript runs when others view the page -->
+<!-- Real attackers steal cookies/session tokens instead of alert -->
+```
+
+**Authentication Bypass**:
+```
+Normal login: username + password check
+Broken auth: No password check, just username in URL
+Example: /profile?user=admin (attacker changes "admin" to anyone)
+```
+
+**Hands-on labs** (4 hours):
+- TryHackMe: **"OWASP Top 10"** room (free)
+- TryHackMe: **"SQL Injection"** room (free)
+
+**Exercise** (2 hours):
+1. Do TryHackMe "OWASP Top 10" room
+2. Take screenshots of 3 vulnerabilities you exploited
+3. For each, write:
+   - What vulnerability is it?
+   - How would an attacker use this?
+   - How would you detect it as a SOC analyst?
+   - How would you fix it?
+
+**Check-in**: Send screenshots + explanations.
+
+---
+
+#### Week 11 continued: Hands-on Web App Hacking
+
+**Setup DVWA** (Damn Vulnerable Web Application):
+```bash
+# In Ubuntu VM
+# Download DVWA from: https://github.com/digininja/DVWA
+# Or use TryHackMe's pre-built lab
+
+# You'll attack a vulnerable web app intentionally
+```
+
+**Exercise** (4 hours):
+1. Set up DVWA in your Ubuntu VM
+2. Follow the guide to get it running
+3. Exploit these vulnerabilities (one at a time):
+   - **Brute Force**: Try to login by guessing passwords
+   - **SQL Injection**: Steal data from the database
+   - **XSS**: Inject JavaScript
+   - **Command Injection**: Execute system commands
+4. For each:
+   - Screenshot the attack
+   - Explain the payload (what you entered and why it worked)
+   - Write the fix
+
+**Check-in**: Send screenshots + explanations.
+
+---
+
+### Week 12–13: Penetration Testing Basics
+
+**Why**: Understand the attacker's toolkit. This makes you better at defense.
+
+#### Tools: Nmap, Metasploit, Burp Suite (Community)
+
+**Nmap** (network mapper, finds open ports):
+```bash
+sudo apt install nmap
+nmap 192.168.1.1  # Scan a device on your network
+nmap -sV 192.168.1.1  # Get service versions
+nmap -O 192.168.1.1  # Guess operating system
+```
+
+**Learn Nmap** (2 hours):
+- TryHackMe: **"Nmap"** room (free)
+- HackTheBox: **"Nmap" tutorial** (free tier)
+
+**Metasploit** (framework for exploits):
+```bash
+sudo apt install metasploit-framework
+msfconsole  # Start Metasploit
+```
+
+**Learn Metasploit** (3 hours):
+- TryHackMe: **"Metasploit"** room (free)
+- HackTheBox: **"Starting Point"** (easy boxes teach Metasploit)
+
+**Burp Suite Community** (web app testing):
+```bash
+# Download from: https://portswigger.net/burp/community
+# Free version is fully functional for learning
+```
+
+**Learn Burp** (2 hours):
+- TryHackMe: **"Burp Suite"** room (free)
+- PortSwigger Web Security Academy (free): https://portswigger.net/web-security
+
+**Exercise** (6 hours):
+1. Use Nmap to scan your own network:
+   ```bash
+   nmap 192.168.1.0/24  # Scan entire subnet
+   ```
+   - Find devices on your network
+   - Identify open ports
+   - Screenshot and document
+
+2. Use Burp Suite to proxy web traffic:
+   - Set Burp as proxy in browser
+   - Visit a website
+   - Capture the request
+   - Modify it (change a parameter)
+   - Send it
+   - Screenshot and explain
+
+3. Use Metasploit to explore (just exploration, no actual exploitation):
+   - Start `msfconsole`
+   - Use `search ms17-010` (famous Windows vulnerability)
+   - Read the exploit details
+   - Understand how it works
+
+**Check-in**: Send screenshots.
+
+---
+
+### Week 14: Linux Privilege Escalation
+
+**Why**: Understanding how attackers escalate privileges teaches you how to prevent it.
+
+**Read** (2 hours):
+- HackTheBox **"Privilege Escalation"** guide (free)
+- TryHackMe: **"Privilege Escalation"** path (free)
+
+**Common privilege escalation vectors**:
+1. **Weak sudo configuration**: User can run dangerous commands as root
+2. **SUID binaries**: Programs running as root that accept user input
+3. **World-writable files**: User can modify system-critical files
+4. **Kernel exploits**: Bugs in Linux kernel itself
+5. **Cron jobs**: Scheduled tasks with weak permissions
+
+**Exercise** (3 hours):
+- TryHackMe: **"Privilege Escalation"** room
+- Document 3 privilege escalation techniques you find
+- For each, explain: What's the vulnerability? How do you exploit it? How do you detect/prevent it?
+
+**Check-in**: Send explanations.
+
+---
+
+### Week 15–16: Set Up Home Lab + First Vulnerable Machine
+
+**What you'll learn**: Build a realistic lab environment, hack a real vulnerable machine
+
+**Setup**:
+1. **Host machine**: Your Windows computer
+2. **VM 1**: Ubuntu Linux (attacker, tools like Metasploit)
+3. **VM 2**: Vulnerable Linux (target, for you to hack)
+
+**Download Kioptrix Level 1** (vulnerable Linux, intentionally weak):
+- Download from: https://vulnhub.com/entry/kioptrix-level-1-1,22/
+- Import into VirtualBox
+
+**Exercise** (6 hours, spread over 2 weeks):
+1. Boot Kioptrix in a new VM
+2. Find its IP address:
+   ```bash
+   # From attacker VM
+   nmap -sn 192.168.1.0/24  # Find all devices
+   ```
+3. Scan it with Nmap:
+   ```bash
+   nmap -sV <kioptrix_ip>
+   ```
+4. Document: What services are running? What versions?
+5. Identify vulnerabilities (search CVE databases)
+6. Use Metasploit to exploit one
+7. Document the entire process:
+   - How did you find the target?
+   - What vulnerability did you exploit?
+   - How did you gain access?
+   - What can you do now?
+   - How would you detect this attack?
+
+**Check-in**: Send complete writeup with screenshots.
+
+---
+
+# PART 3: DEFENSIVE SKILLS & SOC WORK (Weeks 17–24, September–October)
+## Goal: Learn to detect and respond to attacks, build SOC analyst skills
+
+### Week 17–18: Log Analysis & SIEM Basics
+
+**Why**: SOC analysts spend 80% of time looking at logs. You need to be excellent at this.
+
+**Concepts**:
+- **Log**: Record of system/application activity
+- **Log aggregation**: Collecting logs from all sources into one place
+- **SIEM** (Security Information & Event Management): Tool for log analysis, alerting, reporting
+- **Log levels**: DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+**Common log sources**:
+- System logs: Authentication (login), service changes, errors
+- Web server logs: HTTP requests, errors, access patterns
+- Firewall logs: Traffic allowed/blocked, port scans
+- Application logs: Errors, warnings, user actions
+- Database logs: Queries, connections, modifications
+
+**Learn Splunk** (free tier, most popular SIEM):
+- Download: https://www.splunk.com/en_us/download.html (free, 500MB/day limit)
+- Or use online lab: TryHackMe Splunk rooms (free)
+
+**Exercise** (4 hours):
+1. Install Splunk on Ubuntu VM:
+   ```bash
+   # Download Splunk .tgz file
+   # Extract and run
+   ./splunk/bin/splunk start
+   ```
+2. Access Splunk: http://localhost:8000
+3. Upload sample logs (download from: https://github.com/splunk/attack_data)
+4. Create searches:
+   ```
+   # Find failed login attempts
+   source=auth.log "failed password"
+   
+   # Find high-volume traffic
+   source=access.log | stats count by src_ip
+   
+   # Find errors
+   level=ERROR
+   ```
+5. Create a dashboard showing:
+   - Failed logins over time
+   - Top error types
+   - Traffic by source IP
+6. Screenshot the dashboard
+
+**Check-in**: Send dashboard screenshot.
+
+---
+
+### Week 19–20: Intrusion Detection & Threat Hunting
+
+**Why**: You need to know what "normal" looks like to spot anomalies.
+
+**Concepts**:
+- **Baseline**: Normal behavior (baseline traffic is 100 Mbps, logins are 8am-6pm)
+- **Anomaly**: Deviation from baseline (traffic spike to 1Gbps, login at 3am)
+- **Indicator of Compromise (IOC)**: Evidence of attack (malware hash, suspicious IP, unusual process)
+- **Threat hunting**: Proactive search for threats, not reactive
+
+**Learn threat hunting** (3 hours):
+- TryHackMe: **"Threat Hunting"** room (free)
+- SANS **"Threat Hunting Fundamentals"** (free whitepaper)
+
+**Sigma Rules** (open-source detection rules):
+```yaml
+title: Suspicious PowerShell Download
+detection:
+  condition: keywords all
+  keywords:
+    - 'powershell'
+    - 'DownloadString'
+    - 'http'
+```
+
+**Exercise** (4 hours):
+1. TryHackMe: "Threat Hunting" room
+2. Create 3 threat hunts:
+   - Hunt 1: Find potential SQL injection attempts in web logs
+   - Hunt 2: Find brute-force login attempts in auth logs
+   - Hunt 3: Find unusual data exfiltration (large file transfers to outside IPs)
+3. For each hunt:
+   - Write the search query
+   - Screenshot results
+   - Explain: What would indicate a real attack?
+   - Write a Sigma rule to detect it
+
+**Check-in**: Send hunts + Sigma rules.
+
+---
+
+### Week 21–22: Incident Response
+
+**Why**: When attacks happen, you need to respond quickly and correctly.
+
+**Incident Response Framework** (NIST):
+1. **Preparation**: Tools, processes, training ready
+2. **Detection & Analysis**: Identify attack, gather evidence
+3. **Containment**: Stop the attack from spreading
+4. **Eradication**: Remove attacker access
+5. **Recovery**: Restore systems to normal
+6. **Post-Incident**: Learn, improve
+
+**Learn incident response** (3 hours):
+- TryHackMe: **"Incident Handling"** room (free)
+- SANS **"Incident Handler's Handbook"** (free PDF)
+
+**Incident response playbooks** (step-by-step procedures):
+```
+MALWARE DETECTION PLAYBOOK
+1. Isolate affected machine (disconnect network)
+2. Collect evidence (memory dump, disk image)
+3. Scan with antivirus + manual analysis
+4. Determine spread (check other machines)
+5. Remove malware
+6. Restore from clean backup
+7. Update AV signatures
+8. Brief management
+```
+
+**Exercise** (4 hours):
+1. TryHackMe: "Incident Handling" room
+2. Create incident response playbooks for:
+   - Playbook 1: Ransomware attack
+   - Playbook 2: Data breach (attacker accessed database)
+   - Playbook 3: Malware on employee machine
+3. For each playbook:
+   - Step-by-step actions
+   - Who to involve
+   - What evidence to collect
+   - Timeline estimation
+   - Communication strategy
+
+**Check-in**: Send playbooks.
+
+---
+
+### Week 23–24: Capstone Project — Full Security Investigation
+
+**What you'll learn**: Combine all skills — detect, analyze, investigate, respond
+
+**Scenario**:
+Your organization detected suspicious activity. Your job:
+1. Analyze logs to find what happened
+2. Identify the attacker's actions
+3. Determine what was compromised
+4. Recommend remediation
+
+**Do this** (8 hours, can spread over 2 weeks):
+1. TryHackMe: **"Investigating Web Attacks"** room
+   - Analyze compromised web server logs
+   - Find the attack vector
+   - Determine what was exploited
+   - Trace the attacker's actions
+
+2. Create a full incident report:
+   - **Timeline**: When did the attack occur?
+   - **Attack vector**: How did they get in?
+   - **Impact**: What was affected?
+   - **Indicators of Compromise**: What to look for
+   - **Remediation**: How to fix it
+   - **Prevention**: How to stop this next time
+
+3. Create a Splunk dashboard showing:
+   - Timeline of suspicious events
+   - Source IPs involved
+   - Affected systems
+   - Data exfiltration (if any)
+
+**Check-in**: Send incident report + dashboard screenshots.
+
+---
+
+# PART 4: CERTIFICATION & PORTFOLIO (Weeks 25–32, November–December)
+## Goal: Get certified, build job-ready portfolio, land interviews
+
+### Week 25–26: CompTIA Security+ Basics (Free Prep)
+
+**Why**: Security+ is the entry-level certification most Indian companies ask for (even if not mandatory)
+
+**Free prep** (no need to pay for course):
+- YouTube: "Professor Messer Security+ SY0-601" (complete free course, 20 hours)
+- SANS Cyber Aces (all topics, free)
+- ExamTopics free questions (not official, but good for practice)
+
+**What to study** (based on exam domains):
+1. Threats, attacks, vulnerabilities
+2. Technologies and tools
+3. Architecture and design
+4. Identity and access management
+5. Risk management
+6. Cryptography and PKI
+7. Incident response
+8. Governance, risk, compliance
+
+**Study approach** (2 weeks):
+- 2 hrs/day watching Professor Messer videos
+- 1 hr/day reading SANS Cyber Aces
+- 1 hr/day doing practice questions (ExamTopics)
+- Make flashcards for key terms
+
+**Exercise** (practice questions):
+- https://www.examtopics.com/ (search "CompTIA Security+ SY0-601")
+- Do 50 practice questions
+- Track score
+- Review questions you got wrong
+
+**Check-in**: Send screenshot of practice test scores (aim for 70%+).
+
+---
+
+### Week 27–28: Build Portfolio (4 Major Projects)
+
+**Why**: Employers care more about what you can DO than certifications
+
+**Project 1: SIEM Lab**
+- Set up Splunk with sample security logs
+- Create detections for common attacks (SQL injection, brute force, data exfiltration)
+- Create a dashboard showing detection logic
+- Document: how to identify attacks in logs
+- Push to GitHub
+
+**Project 2: Vulnerability Assessment Report**
+- Download a vulnerable app (DVWA, bWAPP, WebGoat)
+- Scan it with Nessus (free) or Burp Community
+- Write a professional report:
+  - Executive summary (1 page, non-technical)
+  - Findings (severity, impact, remediation)
+  - Screenshots of vulnerabilities
+  - Risk rating
+- Push to GitHub
+
+**Project 3: Incident Response Playbook & Analysis**
+- Analyze a provided dataset of an attack (TryHackMe room or sample PCAP)
+- Create incident response playbook
+- Timeline of attack
+- Recommendations
+- Push to GitHub
+
+**Project 4: Home Network Security Audit**
+- Audit your own home network
+- Document current state (devices, services, open ports)
+- Identify risks
+- Implement improvements (firewall rules, network segmentation, monitoring)
+- Before/after comparison with screenshots
+- Push to GitHub
+
+**GitHub portfolio structure**:
+```
+akash-cybersecurity-portfolio/
+├── README.md (your profile: who you are, skills, projects)
+├── project-1-siem-lab/
+│   ├── README.md (project description)
+│   ├── screenshots/ (dashboard, queries)
+│   ├── detection-rules.md
+│   └── methodology.md
+├── project-2-vuln-assessment/
+│   ├── README.md
+│   ├── report.pdf
+│   ├── screenshots/
+│   └── remediation-guide.md
+├── project-3-incident-response/
+│   ├── README.md
+│   ├── playbooks/
+│   ├── analysis.md
+│   └── timeline.md
+└── project-4-network-audit/
+    ├── README.md
+    ├── before-and-after.md
+    └── screenshots/
+```
+
+**Exercise** (8 hours/project, 32 hours total):
+- Build each project with proper documentation
+- Test everything works
+- Write clear README files
+- Make code/findings easy to understand
+- Create professional screenshots/diagrams
+
+**Check-in**: Send GitHub repo link when ready.
+
+---
+
+### Week 29–30: Interview Prep
+
+**What companies will ask**:
+
+**Technical questions**:
+1. "Explain the CIA Triad"
+2. "How would you detect a SQL injection attack?"
+3. "Walk me through an incident response"
+4. "What's the difference between symmetric and asymmetric encryption?"
+5. "How does HTTPS work?"
+6. "What would you do if you found malware on a server?"
+7. "Explain privilege escalation"
+8. "What are the OWASP Top 10?"
+9. "How would you set up a home lab?"
+10. "Tell me about a project you built" (your GitHub projects)
+
+**Behavioral questions**:
+1. "Why cybersecurity?"
+2. "Tell me about a time you solved a complex problem"
+3. "How do you stay updated on security trends?"
+4. "Describe a time you worked under pressure"
+5. "What interests you about our company?"
+
+**Prepare** (4 hours):
+1. Write 1-paragraph answers to each technical question
+2. Practice saying them out loud (clarity + confidence)
+3. Research companies you'll apply to:
+   - What services do they offer?
+   - What security challenges do they face?
+   - What certifications do employees have?
+4. Prepare questions to ask them:
+   - "What does the SOC team work on day-to-day?"
+   - "What tools do you use?"
+   - "How do you train junior analysts?"
+   - "What's your incident response process?"
+
+**Mock interview** (2 hours):
+- Ask a friend to interview you
+- Record yourself answering questions
+- Review recording for clarity, body language, confidence
+
+**Check-in**: Send me 3 technical answers you're unsure about, I'll review them.
+
+---
+
+### Week 31: Job Applications & Networking
+
+**What to do**:
+
+**Update LinkedIn** (critical):
+- Professional photo
+- Headline: "BCA Graduate | Cybersecurity Enthusiast | SOC Analyst Aspirant"
+- Summary: 3-4 sentences about your skills + passion
+- Add all projects to "Featured"
+- Ask professors/friends for recommendations
+- Follow security professionals and companies
+
+**Application strategy**:
+- Target 20–30 companies
+- Tailor resume for each (mention their tech if you know it)
+- Apply on: LinkedIn, Naukri, Indeed, company websites, Internshala
+- Set up alerts for new jobs
+
+**Job titles to apply for**:
+- SOC Analyst L1
+- Junior Security Analyst
+- Security Operations Analyst
+- Incident Response Analyst
+- Vulnerability Analyst
+- Security Support Engineer
+
+**Resume structure** (1 page, no photos unless asked):
+```
+AKASH [YOUR NAME]
+Dehradun, Uttarakhand | +91 XXXXXXXXXX | akash@gmail.com | GitHub: github.com/akash-security
+
+SUMMARY
+BCA graduate passionate about cybersecurity. Hands-on experience with SIEM tools,
+vulnerability assessment, incident response, and network security. Completed 4 major
+security projects. Seeking SOC Analyst role to detect and respond to threats.
+
+SKILLS
+- SIEM: Splunk, log analysis, threat detection
+- Penetration Testing: Nmap, Metasploit, Burp Suite, DVWA
+- Linux: System administration, privilege escalation, hardening
+- Networking: TCP/IP, DNS, HTTPS, network analysis with Wireshark
+- Incident Response: Playbooks, threat hunting, malware analysis
+- Tools: Splunk, Nessus, Wireshark, Metasploit, Burp Suite Community
+
+PROJECTS
+SIEM Lab & Threat Detection | GitHub: [link]
+Built Splunk lab with sample security logs. Created detections for SQL injection,
+brute force, and data exfiltration. Designed dashboard for SOC monitoring.
+
+Vulnerability Assessment Report | GitHub: [link]
+Performed pentest on DVWA web application. Identified 5 high-severity vulnerabilities.
+Wrote professional report with remediation guidance.
+
+Incident Response Playbooks | GitHub: [link]
+Created playbooks for ransomware, data breach, and malware scenarios. Analyzed
+sample attack dataset, created timeline, and incident report.
+
+Network Security Audit | GitHub: [link]
+Audited home network for vulnerabilities. Implemented firewall rules and segmentation.
+Documented before/after security posture improvements.
+
+EDUCATION
+Bachelor of Computer Applications (BCA) | Swami Vara Himalayan University | 2024
+
+CERTIFICATIONS (Optional, not required)
+- CompTIA Security+ (in progress / completed)
+
+LANGUAGES
+English, Hindi (or your local language)
+```
+
+**Apply** (Week 31):
+- Send 20–30 applications
+- Customize each for the company
+- Track where you applied (spreadsheet)
+- Follow up after 1 week if no response
+
+**Check-in**: Send me your LinkedIn profile (URL) and updated resume.
+
+---
+
+### Week 32: Final Prep & Interview Scheduling
+
+**What to do**:
+
+**Polish everything**:
+- GitHub repos: Check all documentation is clear
+- Resume: Proofread, customize for each application
+- LinkedIn: All projects featured, recommendations added
+- Interview prep: Practiced all answers, confident
+
+**If you get calls**:
+1. **Initial screening** (15-30 min):
+   - Tell your story
+   - Highlight projects
+   - Ask about the role
+   - Show enthusiasm
+
+2. **Technical interview** (1-2 hours):
+   - Expect deep technical questions
+   - Walk through your projects
+   - Possibly a hands-on task (analyze logs, find vulnerability, etc.)
+   - Ask good questions
+
+3. **Final round** (HR + manager):
+   - Behavioral questions
+   - Compensation discussion
+   - Offer!
+
+**Expect timeline**: Applications → interviews → offers = 4–8 weeks typical in India
+
+**Target salary** (as reference, will vary by city/company):
+- Tier 2 cities: ₹3–4 LPA
+- Metro areas: ₹4–6 LPA
+- Good companies: ₹5–7 LPA
+
+---
+
+# CONTINUOUS LEARNING (After Getting Job)
+
+Once you land the job, **keep learning** on the job:
+
+1. **Follow security blogs**:
+   - Krebs on Security (krebs onsecurity.com)
+   - SANS Internet Storm Center (isc.sans.edu)
+   - Bleeping Computer (bleepingcomputer.com)
+   - Reddit r/cybersecurity, r/netsec
+
+2. **Certifications to pursue** (once employed, often company-paid):
+   - CEH (Certified Ethical Hacker) — year 2
+   - CISSP (Certified Information Systems Security Professional) — year 3+
+   - CCNA Security, AWS Security — specialized
+
+3. **Stay sharp**:
+   - Do 1 TryHackMe room per week
+   - Read 1 security article per day (10 min)
+   - Contribute to open-source security projects
+   - Attend local security meetups
+
+4. **Become an expert** at your first job:
+   - Master your tools (Splunk, Nessus, etc.)
+   - Learn your company's architecture
+   - Become the go-to for log analysis
+   - Move to advanced incident response
+   - Consider specialization (malware analysis, cloud security, etc.)
+
+---
+
+# HOW TO USE THIS CURRICULUM
+
+**Week-by-week**:
+1. Read the "What you'll learn" section
+2. Do all the "Read/Watch" resources
+3. Do hands-on exercises
+4. Take screenshots
+5. Send me your work with questions
+6. I'll give feedback, clarifications, corrections
+7. Move to next section
+
+**Questions?** When stuck:
+- Re-read the concept section
+- Google the error message
+- Search TryHackMe for similar topics
+- **Send me a screenshot + describe what you tried**
+- I'll help debug
+
+**You'll get frustrated** (normal):
+- Week 2–3: "What am I even doing?" (normal)
+- Week 6–8: "This is too hard" (normal, push through)
+- Week 12–16: "Ah, this makes sense!" (breakthrough)
+- Week 20+: "I can actually do this" (confidence)
+
+**Consistency beats perfection**:
+- 2 hours per day, every day > 16 hours once per week
+- If you miss a day, just continue (don't catch up)
+- If you don't understand something, ask me instead of skipping
+- By week 8, you should know: Linux, networking, cryptography
+- By week 16, you should know: How to attack (and thus defend)
+- By week 24, you should know: How to detect and respond to attacks
+- By week 32, you should be ready for interviews
+
+---
+
+# FINAL CHECKLIST (By December)
+
+- [ ] Completed weeks 1–32 of curriculum
+- [ ] 4 major projects on GitHub with documentation
+- [ ] LinkedIn profile complete with projects featured
+- [ ] Resume ready (multiple versions for different roles)
+- [ ] 20–30 job applications sent
+- [ ] At least 3–5 interviews completed
+- [ ] Job offer OR close to final rounds
+- [ ] Can explain all major cybersecurity concepts
+- [ ] Can walk through your projects and how you'd detect similar attacks
+- [ ] Feel confident talking about security
+
+---
+
+**This is your roadmap. You have 6 months. You have the tools (free). You have the commitment (8 hrs/day). You have me for questions.**
+
+**Let's do this.**
+
+---
+
+## NEXT IMMEDIATE STEPS (Do this this week)
+
+1. **Set up accounts** (takes 1 hour):
+   - Create GitHub account (github.com)
+   - Create TryHackMe account (tryhackme.com, free tier)
+   - Create HackTheBox account (hackthebox.com, free tier)
+   - Create LinkedIn profile (linkedin.com)
+   - Update LinkedIn with your cybersecurity interests
+
+2. **Download software** (takes 2 hours, lots of waiting):
+   - VirtualBox (virtualbox.org)
+   - Ubuntu 22.04 LTS ISO (ubuntu.com)
+   - Splunk free (splunk.com)
+   - Wireshark (wireshark.org)
+   - Nmap (nmap.org)
+   - Metasploit (installed via apt in Linux)
+
+3. **Join communities** (takes 30 min):
+   - Reddit: r/cybersecurity (subscribe)
+   - Reddit: r/netsec (subscribe)
+   - Discord: Cybersecurity communities (search "cybersecurity discord")
+   - Follow on Twitter: @krebs on Security, @malwarejake, @securityaffairs
+
+4. **Tell me when you're ready** to start Week 1 (June):
+   - Have you created GitHub/TryHackMe/LinkedIn?
+   - Have you downloaded VirtualBox + Ubuntu ISO?
+   - Are you ready to commit to 8 hrs/day starting June?
+   - Any blockers (internet, space, motivation)?
+
+**Once I confirm you're ready, we'll start Week 1 of Part 1 together.**
+
+Good luck. You've got this.
+
